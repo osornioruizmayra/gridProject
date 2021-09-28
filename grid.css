@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "Public Sans", sans-serif;
+    font-size: 1.2rem;
+    min-height: 100%;
+}
+
+.grid-container > * {
+    box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+}
+
+.header {
+    grid-area: header;
+    background-color: #52834d;
+}
+
+.navbar {
+    grid-area: navbar;
+    background-color: #628f62;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #53995f;
+}
+
+.main {
+    grid-area: main;
+    background-color: #66a369;
+}
+
+.footer{
+    grid-area: footer;
+    background-color: #98d48e;
+}
+
+.grid-container {
+    display: grid;
+    gap: 10px;
+    /*los titulos se acomodan deacuerdo a este orden -->*/
+    grid-template: /*-areas: */
+        "header"  100px
+        "navbar"  50px
+        "main"    auto
+        "sidebar" 100px
+        "footer"  100px;
+}
+/*modo tablet*/
+@media (min-width: 600px) {
+    .grid-container {
+        /*grid-template-columns: 200px auto;
+        grid-template-rows: 100px 50px auto 100px;cada # es por cada elemento o fila
+        grid-template-areas: 
+        "header header" 
+        "navbar navbar" 
+        "sidebar main" 
+        "footer footer";*/
+
+        grid-template:
+        "header header" 100px /*esto es la altura de las filas*/
+        "navbar navbar" 50px
+        "sidebar main"  auto
+        "footer footer" 100px/
+         200px    auto; /*esto es lo ancho de las columnas*/
+    }
+}
+
+/*modo desktop*/
+@media (min-width: 900px) {
+    .grid-container {
+        grid-template:
+        "header header header" 100px
+        "navbar main   sidebar" auto
+        "footer footer footer" 100px/*esto es la altura de las filas*//
+         200px  auto   200px /*esto es lo ancho de las columnas*/;
+    }
+}
